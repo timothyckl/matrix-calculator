@@ -1,61 +1,50 @@
 #include <iostream>
 #include <string>
 #include "matrix.h"
+#include "calculator.h"
 
-using namespace std;
+Calculator::Calculator(std::string mode_i) {
+  mode = mode_i;
+}
 
-class Calculator {
-  public:
-    Calculator(string mode_i="matrix") {
-      mode = mode_i;
-    }
+bool Calculator::is_conformable(Matrix &matA, Matrix &matB) {
+  auto [rowsA, colsA] = matA.get_shape(); 
+  auto [rowsB, colsB] = matB.get_shape();
 
-    bool is_conformable(Matrix &matA, Matrix &matB) {
-      auto [rowsA, colsA] = matA.get_shape();
-      auto [rowsB, colsB] = matB.get_shape();
+  if (rowsA == rowsB && colsA == colsB) { return true; }
+  else { return false; }
+}
 
-      if (rowsA == rowsB && colsA == colsB) { return true; }
-      else { return false; }
-    }
+/* void Calculator::addition(Matrix::Matrix &matA, Matrix::Matrix &matB, Matrix::Matrix &matResult) { */
+/*   if (Calculator::is_conformable(matA, matB)) { */
+/*     auto [rowsA, colsA] = matA.get_shape(); */
+/*     auto [rowsB, colsB] = matB.get_shape(); */
 
-    void addition(Matrix &matA, Matrix &matB, Matrix &matResult) {
-      if (is_conformable(matA, matB)) {
-        auto [rowsA, colsA] = matA.get_shape();
-        auto [rowsB, colsB] = matB.get_shape();
+/*     for (int i = 0; i < rowsA; i++) { */
+/*       for (int j = 0; j < colsA; j++) { */
+/*         matResult.get_data()[i * colsA + j] =  */
+/*           matA.get_data()[i * colsA + j] + matB.get_data()[i * colsA + j]; */
+/*       } */
+/*     } */
+/*   } */
+/*   else {  */
+/*     cout << "Matrices are not conformable for addition" << endl;  */
+/*   }  */
+/* } */
 
-        for (int i = 0; i < rowsA; i++) {
-          for (int j = 0; j < colsA; j++) {
-            matResult.get_data()[i * colsA + j] = 
-              matA.get_data()[i * colsA + j] + matB.get_data()[i * colsA + j];
-          }
-        }
-      }
-      else { 
-        cout << "Matrices are not conformable for addition" << endl; 
-      } 
-    }
+/* int main() { */
+/*   double matA_data[2][2] = {{1, 2}, {3, 4}}; */
+/*   double matB_data[2][2] = {{5, 6}, {7, 8}}; */
+/*   double matResult_data[2][2] = {{0, 0}, {0, 0}}; */
 
-  private:
-    string mode;
-};
+/*   Matrix matA(&matA_data[0][0], 2, 2); */
+/*   Matrix matB(&matB_data[0][0], 2, 2); */
+/*   Matrix matResult(&matResult_data[0][0], 2, 2); */
 
-int main() {
-  double matA_data[2][2] = {{1, 2}, {3, 4}};
-  double matB_data[2][2] = {{5, 6}, {7, 8}};
-  double matResult_data[2][2] = {{0, 0}, {0, 0}};
+/*   Calculator calc; */
 
-  Matrix matA(&matA_data[0][0], 2, 2);
-  Matrix matB(&matB_data[0][0], 2, 2);
-  Matrix matResult(&matResult_data[0][0], 2, 2);
+/*   calc.addition(matA, matB, matResult); */
+/*   cout << matResult.print_data() << endl; */
 
-  Calculator calc;
-  /* bool comformable = calc.is_conformable(matA, matB); */
-  /* cout << "Matrices are conformable: " << comformable << endl; */
-
-  calc.addition(matA, matB, matResult);
-  cout << matResult.print_data() << endl;
-
-  return 0;
-};
-
-
+/*   return 0; */
+/* }; */
