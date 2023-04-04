@@ -32,6 +32,23 @@ void Calculator::addition(Matrix &matA, Matrix &matB, Matrix &matResult) {
   }  
 }
 
+void Calculator::subtraction(Matrix &matA, Matrix &matB, Matrix &matResult) {
+  if (Calculator::is_conformable(matA, matB)) {
+    auto [rowsA, colsA] = matA.get_shape();
+    auto [rowsB, colsB] = matB.get_shape();
+
+    for (int i = 0; i < rowsA; i++) {
+      for (int j = 0; j < colsA; j++) {
+        matResult.get_data()[i * colsA + j] = 
+          matA.get_data()[i * colsA + j] - matB.get_data()[i * colsB + j];
+      }
+    }
+  }
+  else { 
+    std::cout << "Matrices are not conformable for subtraction." << std::endl; 
+  }  
+}
+
 /* int main() { */
 /*   double matA_data[2][2] = {{1, 2}, {3, 4}}; */
 /*   double matB_data[2][2] = {{5, 6}, {7, 8}}; */

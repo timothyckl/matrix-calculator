@@ -10,6 +10,7 @@ class Calculator {
     Calculator(std::string mode_i="matrix");
     bool is_conformable(Matrix &matA, Matrix &matB);
     void addition(Matrix &matA, Matrix &matB, Matrix &matResult);
+    void subtraction(Matrix &matA, Matrix &matB, Matrix &matResult);
 
   private:
     std::string mode;
