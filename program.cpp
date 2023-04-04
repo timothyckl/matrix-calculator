@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <limits>
 #include "matrix.h"
 #include "calculator.h"
 #include "program.h"
@@ -7,6 +8,10 @@
 Program::Program() {
   std::cout << "Program initialized!" << std::endl;
 };
+
+void Program::get_matrix_data() {
+  std::cout << "Not implemented yet!" << std::endl;
+}
 
 void Program::run() {
   int choice = -1;
@@ -35,48 +40,85 @@ void Program::run() {
   Matrix matA(rowsA, colsA);
   Matrix matB(rowsB, colsB);
 
-  // check if matrices are conformable
-  if (calc.is_conformable(matA, matB)) {
-    // create result matrix
-    Matrix matResult(rowsA, colsA);
-  } 
-  else {
-    std::cout << "\nMatrices are not conformable!" << std::endl;
-    // need to reprompt user for matrix sizes
-  }
-
   // get matrix data
   double matA_data[rowsA][colsA];
   double matB_data[rowsB][colsB];
 
-  std::cout << "\nEnter the data for matrix A seperated by a comma: " << std::endl;
-  
+  // need to change this to a function
+  std::cout << "\nEnter the data for matrix A: " << std::endl;
+  for (int i = 0; i < rowsA; i++) {
+    for (int j = 0; j < colsA; j++) {
+      std::cin >> matA_data[i][j];
+    }
+  }
 
+  // need to change this to a function
+  std::cout << "\nEnter the data for matrix B: " << std::endl;
+  for (int i = 0; i < rowsB; i++) {
+    for (int j = 0; j < colsB; j++) {
+      std::cin >> matB_data[i][j];
+    }
+  }
+
+  // set matrix data
+  matA.set_data(&matA_data[0][0]);
+  matB.set_data(&matB_data[0][0]);
 
   // after defining matrices, clear screen
-  /* system("clear"); */
+  system("clear");
 
-  
+  // print matrices
+  std::cout << "\nMatrix A:\n" << matA.print_data() << std::endl;
+  std::cout << "\nMatrix B:\n" << matB.print_data() << std::endl;
 
-  /* Matrix matA(3, 3); */
-  /* Matrix matB(3, 3); */
-  /* Matrix matResult(3, 3); */
+  while (choice != 3) {
+    // get choice
+    std::cout << "\nChoose an operation:\n========================" << std::endl;
+    std::cout << "0. Define Matrices\n1. Addition\n2. Subtraction\n3. Exit" << std::endl;
+    std::cout << "========================\nEnter your choice: ";
 
-  /* double matA_data[3][3] = {{10, 20, 30}, {40, 50, 60}, {70, 80, 90}}; */
-  /* double matB_data[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}; */
+    while (!(std::cin >> choice)) {
+      std::cin.clear();
+      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+      std::cout << "Invalid input. Enter your choice again: ";
+    }
 
-  /* matA.set_data(&matA_data[0][0]); */
-  /* matB.set_data(&matB_data[0][0]); */
-
-  /* Calculator calc; */
-  /* std::cout << "Matrices are conformable: " << calc.is_conformable(matA, matB) << std::endl; */
-
-  /* std::cout << "Matrix A:\n" << matA.print_data() << std::endl; */
-  /* std::cout << "Matrix B:\n" << matB.print_data() << std::endl; */
-
-  /* calc.addition(matA, matB, matResult); */
-  /* calc.subtraction(matB, matA, matResult); */
-
-  /* std::cout << "Result:\n"<< matResult.print_data() << std::endl; */
+    std::cout << std::endl;
+    
+    switch(choice) {
+      case 0:
+        // define new matrices here
+        std::cout << "Not implemented yet!" << std::endl;
+        break;
+      case 1:
+        {
+          Matrix addition_result = calc.addition(matA, matB);
+          
+          if (!addition_result.is_empty) {
+            std::cout << addition_result.print_data() << std::endl;
+          } else {
+            std::cout << "Addition not possible!" << std::endl;
+          }
+          break; 
+        }
+      case 2:
+        {
+          Matrix subtraction_result = calc.subtraction(matA, matB);
+          
+          if (!subtraction_result.is_empty) {
+            std::cout << subtraction_result.print_data() << std::endl;
+          } else {
+            std::cout << "Subtraction not possible!" << std::endl;
+          }
+          break;
+        }   
+      case 3:
+        std::cout << "Exiting..." << std::endl;
+        break;
+      default:
+        std::cout << "Invalid choice. Try again." << std::endl;
+        break;
+    }
+  }
 }
 

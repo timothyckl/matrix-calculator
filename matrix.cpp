@@ -7,10 +7,12 @@ Matrix::Matrix(int rows_i, int cols_i) {
   rows = rows_i;
   cols = cols_i;
   data = new double[rows * cols];
-
+  
   for (int i = 0; i < rows * cols; i++) {
     data[i] = 0;
   }
+
+  Matrix::is_empty = true;  // matrix is considered empty if it is a zero matrix
 }; 
 
 std::string Matrix::print_data() {
@@ -35,6 +37,7 @@ double* Matrix::get_data() {
 
 void Matrix::set_data(double* data_i) {
   data = data_i;
+  Matrix::is_empty = false;
 };
 
 std::tuple<int, int> Matrix::get_shape() {

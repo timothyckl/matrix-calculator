@@ -7,6 +7,7 @@
 class Program {
   public:
     Program();
+    void get_matrix_data();
     void run();
 };
 

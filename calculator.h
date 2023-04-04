@@ -9,8 +9,8 @@ class Calculator {
   public:
     Calculator(std::string mode_i="matrix");
     bool is_conformable(Matrix &matA, Matrix &matB);
-    void addition(Matrix &matA, Matrix &matB, Matrix &matResult);
-    void subtraction(Matrix &matA, Matrix &matB, Matrix &matResult);
+    Matrix addition(Matrix &matA, Matrix &matB);
+    Matrix subtraction(Matrix &matA, Matrix &matB);
 
   private:
     std::string mode;

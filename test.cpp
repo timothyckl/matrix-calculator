@@ -36,11 +36,11 @@ void print_matrix(matrix &m) {
 
 void define_matrix() {
   while (true) {
-    cout << "input 9 elements into your 2x2 matrix A: \n";
+    cout << "input 9 elements into your 3x3 matrix A: \n";
     if (create_matrix(mat_A)) {
       
       while (true) {
-        cout << "input 9 elements into your 2x2 matrix B: \n";
+        cout << "input 9 elements into your 3x3 matrix B: \n";
         if (create_matrix(mat_B)) {
           break;
         }
