@@ -127,7 +127,7 @@ int main() {
         addition(mat_A, mat_B, mat_result);
         cout << "Performing matrix addition:\n\nResult:\n";
         print_matrix(mat_result);
-      
+ 
         break;
       case 2:
         subtraction(mat_A, mat_B, mat_result);

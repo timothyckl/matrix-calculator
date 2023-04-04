@@ -7,7 +7,8 @@ Matrix::Matrix(int rows_i, int cols_i) {
   rows = rows_i;
   cols = cols_i;
   data = new double[rows * cols];
-  
+ 
+  // matrix is always initialized to zero
   for (int i = 0; i < rows * cols; i++) {
     data[i] = 0;
   }
@@ -15,9 +16,7 @@ Matrix::Matrix(int rows_i, int cols_i) {
   Matrix::is_empty = true;  // matrix is considered empty if it is a zero matrix
 }; 
 
-std::string Matrix::print_data() {
-  if (data == NULL) { return "Matrix is empty"; }
-
+std::string Matrix::print_data() { 
   auto [rows, cols] = Matrix::get_shape();
   std::string data_str = "";
 

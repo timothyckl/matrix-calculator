@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <thread>
 #include <limits>
 #include "matrix.h"
 #include "calculator.h"
@@ -7,6 +8,10 @@
 
 Program::Program() {
   std::cout << "Program initialized!" << std::endl;
+  // wait one second
+  std::this_thread::sleep_for(std::chrono::seconds(1));
+  // clear screen
+  system("clear");
 };
 
 void Program::get_matrix_data() {
@@ -114,6 +119,7 @@ void Program::run() {
         }   
       case 3:
         std::cout << "Exiting..." << std::endl;
+        std::this_thread::sleep_for(std::chrono::seconds(1));
         break;
       default:
         std::cout << "Invalid choice. Try again." << std::endl;
@@ -121,4 +127,3 @@ void Program::run() {
     }
   }
 }
-

@@ -21,4 +21,3 @@ class Matrix {
 };
 
 #endif // MATRIX_H
-

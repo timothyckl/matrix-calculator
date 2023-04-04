@@ -7,13 +7,6 @@ Calculator::Calculator(std::string mode_i) {
   mode = mode_i;
 }
 
-/* bool Calculator::create_matrix(Matrix &mat) { */
-/*   auto [rows, cols] = mat.get_shape(); */
-  
-
-/*   return true; */
-/* } */
-
 bool Calculator::is_conformable(Matrix &matA, Matrix &matB) {
   auto [rowsA, colsA] = matA.get_shape(); 
   auto [rowsB, colsB] = matB.get_shape();
@@ -34,11 +27,13 @@ Matrix Calculator::addition(Matrix &matA, Matrix &matB) {
           matA.get_data()[i * colsA + j] + matB.get_data()[i * colsB + j];
       }
     }
+    result.is_empty = false;
+    return result;
   }
-  else { 
+  else {
+    result.is_empty = true;
     std::cout << "Matrices are not conformable for addition." << std::endl; 
   }
-  result.is_empty = false;
   return result;
 }
 
@@ -54,11 +49,11 @@ Matrix Calculator::subtraction(Matrix &matA, Matrix &matB) {
           matA.get_data()[i * colsA + j] - matB.get_data()[i * colsB + j];
       }
     }
+    result.is_empty = false;
   }
   else { 
-    std::cout << "Matrices are not conformable for subtraction." << std::endl; 
-  }
-  
-  result.is_empty = false;
+    result.is_empty = true;
+    std::cout << "Matrices are not conformable for subtraction." << std::endl;  
+  }  
   return result;
 }
