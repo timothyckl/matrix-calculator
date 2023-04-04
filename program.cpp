@@ -45,7 +45,7 @@ void Program::run() {
   double matB_data[rowsB][colsB];
 
   // need to change this to a function
-  std::cout << "\nEnter the data for matrix A: " << std::endl;
+  std::cout << "\nEnter the data for matrix A (seperated by space): " << std::endl;
   for (int i = 0; i < rowsA; i++) {
     for (int j = 0; j < colsA; j++) {
       std::cin >> matA_data[i][j];
@@ -53,7 +53,7 @@ void Program::run() {
   }
 
   // need to change this to a function
-  std::cout << "\nEnter the data for matrix B: " << std::endl;
+  std::cout << "\nEnter the data for matrix B (seperated by space): " << std::endl;
   for (int i = 0; i < rowsB; i++) {
     for (int j = 0; j < colsB; j++) {
       std::cin >> matB_data[i][j];

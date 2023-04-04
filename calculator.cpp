@@ -38,6 +38,7 @@ Matrix Calculator::addition(Matrix &matA, Matrix &matB) {
   else { 
     std::cout << "Matrices are not conformable for addition." << std::endl; 
   }
+  result.is_empty = false;
   return result;
 }
 
@@ -57,5 +58,7 @@ Matrix Calculator::subtraction(Matrix &matA, Matrix &matB) {
   else { 
     std::cout << "Matrices are not conformable for subtraction." << std::endl; 
   }
+  
+  result.is_empty = false;
   return result;
 }
