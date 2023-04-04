@@ -7,10 +7,12 @@
 
 class Matrix {
   public:
-    Matrix(double* data_i, int rows_i = 1, int cols_i = 1); 
+    Matrix(int rows_i = 1, int cols_i = 1); 
     std::string print_data();
     double* get_data();    
+    void set_data(double* data_i);
     std::tuple<int, int> get_shape();
+  
   private:
     int rows;
     int cols;
