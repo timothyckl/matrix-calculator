@@ -7,6 +7,13 @@ Calculator::Calculator(std::string mode_i) {
   mode = mode_i;
 }
 
+/* bool Calculator::create_matrix(Matrix &mat) { */
+/*   auto [rows, cols] = mat.get_shape(); */
+  
+
+/*   return true; */
+/* } */
+
 bool Calculator::is_conformable(Matrix &matA, Matrix &matB) {
   auto [rowsA, colsA] = matA.get_shape(); 
   auto [rowsB, colsB] = matB.get_shape();
