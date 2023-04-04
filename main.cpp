@@ -23,9 +23,9 @@ int main() {
   cout << "Matrix A:\n" << matA.print_data() << endl;
   cout << "Matrix B:\n" << matB.print_data() << endl;
 
-  calc.addition(matA, matB, matResult);
+  /* calc.addition(matA, matB, matResult); */
+  calc.subtraction(matB, matA, matResult);
   cout << "Result:\n"<< matResult.print_data() << endl;
-
 
   return 0;
 }
