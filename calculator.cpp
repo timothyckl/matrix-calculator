@@ -48,20 +48,3 @@ void Calculator::subtraction(Matrix &matA, Matrix &matB, Matrix &matResult) {
     std::cout << "Matrices are not conformable for subtraction." << std::endl; 
   }  
 }
-
-/* int main() { */
-/*   double matA_data[2][2] = {{1, 2}, {3, 4}}; */
-/*   double matB_data[2][2] = {{5, 6}, {7, 8}}; */
-/*   double matResult_data[2][2] = {{0, 0}, {0, 0}}; */
-
-/*   Matrix matA(&matA_data[0][0], 2, 2); */
-/*   Matrix matB(&matB_data[0][0], 2, 2); */
-/*   Matrix matResult(&matResult_data[0][0], 2, 2); */
-
-/*   Calculator calc; */
-
-/*   calc.addition(matA, matB, matResult); */
-/*   cout << matResult.print_data() << endl; */
-
-/*   return 0; */
-/* }; */
